@@ -2,6 +2,15 @@
 
 Ben-Tube is a program developed to watch **Ben 10** directly from the terminal.
 
+---
+
+# Legal Disclaimer
+
+This program does not host or store any video content. All videos are sourced from third-party video hosting websites. It is just a terminal based cli app.
+
+If you own the copyright to any content listed by this program, please contact us at [valentari@proton.me] with the relevant links. Your request will be processed within **3 business days**.
+
+
 ## Usage
 
 **Note:** Node.js, npm, and **VLC** or **Totem** are required. Videos can be played using VLC, Totem, or the default browser. VLC and browsers are supported on all platforms. By default, the program uses the default browser.
@@ -106,6 +115,7 @@ Ben 10 Classic:Season>1>Part>1
 watch? > ..
 Ben 10 Classic:Season>1>Part>
 ```
+github: https://github.com/anywany/bentube
 
 thanks for using, report any thing to me: valentari@proton.me
 ---
@@ -113,6 +123,12 @@ thanks for using, report any thing to me: valentari@proton.me
 # Ben-Tube (Türkçe)
 
 Ben-Tube, terminal üzerinden **Ben 10** izlemek için geliştirilmiş bir programdır.
+
+# Yasal Uyarı (Disclaimer)
+
+Bu program, dizi bölümlerine doğrudan ev sahipliği yapmaz veya herhangi bir içeriği barındırmaz. Tüm videolar, üçüncü taraf video barındırma sitelerinden alınmaktadır. Ayrıca videolar ile ilgili bir ilişkimiz yoktur. Bu program sadece bir terminal tabanlı cli apptir.
+
+Eğer telif hakkı size ait olan bir içerik program tarafından listeleniyorsa, lütfen **ilgili bağlantılar ile birlikte** [valentari@proton.me] üzerinden bizimle iletişime geçin. Talebiniz 3 iş günü içerisinde işleme alınacaktır.
 
 **Not:** Programın çalışması için **Node.js**, **npm** ve **VLC** veya **Totem** gereklidir. Videolar VLC, Totem veya varsayılan tarayıcı kullanılarak oynatılabilir. VLC ve tarayıcı tüm platformlarda desteklenmektedir. Program, varsayılan olarak tarayıcınızı kullanır.
 
@@ -228,5 +244,7 @@ Bu program **GPL v3** lisansı ile lisanslanmıştır.
 Detaylı bilgi için: [GPL v3](https://www.gnu.org/licenses/gpl-3.0.txt)
 
 **Sorumluluk Reddi:** Bu programın yanlış kullanımından doğabilecek sorunlardan sorumlu değilim. Tüm sorumluluk kullanıcıya aittir.
+
+github: https://github.com/anywany/bentube
 
 thanks for using, report any thing to me: valentari@proton.me
