@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ben tube</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    ICON
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111111;
+    }
+
+    #player-container {
+      position: relative;
+      background-color: #0f0f0f;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    #player {
+      display: block;
+      
+    }
+
+    .quality-selector {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background-color: rgba(2, 33, 0, 0.432);
+      border-radius: 15px;
+      padding: 10px;
+      z-index: 10;
+      display: none;
+    }
+
+    .quality-selector button {
+  background: #2cb582;
+  border-radius: 999px;
+  box-shadow: #5df091 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin: 10px;
+    }
+
+    .quality-selector button:hover {
+      transition: .4s;
+      background-color: #1e7e5b;
+    }
+
+    .quality-toggle-button {
+      background: url("ben10.svg") no-repeat center;width: 50px;height: 50px;
+      background-size: contain;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 8px 16px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    .quality-toggle-button:hover {
+      transition: .5s;width: 55px;height: 55px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="player-container">
+    <video id="player" controls>
+      <source src="VIDEO_SOURCE">
+    </video>
+    <button class="quality-toggle-button" id="toggle-quality-selector" role="button"></button>
+    <div class="quality-selector" id="quality-selector"></div>
+  </div>
+
+  <script>
+    const toggleQualityButton = document.getElementById('toggle-quality-selector');
+
+    const videoElement = document.getElementById('player');
+    const qualitySelector = document.getElementById('quality-selector');
+    let hls;
+
+    videoElement.width = window.innerWidth-300
+
+    if (Hls.isSupported()) {
+      hls = new Hls();
+      hls.loadSource("VIDEO_SOURCE");
+      hls.attachMedia(videoElement);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, function(event, data) {
+        data.levels.forEach(function(level, index) {
+          const button = document.createElement('button');
+          button.innerHTML = level.height + 'p';
+          button.addEventListener('click', function() {
+            hls.currentLevel = index;
+            qualitySelector.style.display = "none";
+          });
+          qualitySelector.appendChild(button);
+        });
+      });
+    } else {
+      alert("HLS.js is not supported in this browser..");
+    }
+
+    toggleQualityButton.addEventListener('click', function() {
+      if (qualitySelector.style.display === "none" || qualitySelector.style.display === "") {
+        qualitySelector.style.display = "block";
+      } else {
+        qualitySelector.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
